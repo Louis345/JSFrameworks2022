@@ -27,7 +27,7 @@ CanCode Communities' administration should provide you access to our class's tea
 
 Mondays and Wednesdays \
 5:45pm - 8:45pm \
-First day of class: 2/28/2022 \
+First day of class: 3/14/2022 \
 Last day of class: 5/25/2022 \*\
 Final project due date: TBA
 Graduation date: TBA

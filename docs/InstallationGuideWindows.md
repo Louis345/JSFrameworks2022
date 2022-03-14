@@ -4,7 +4,7 @@
 
 If you took the fundamentals class and followed the previous installation guide, you will just need to upgrade a few things and install some Node.js packages.
 
-First, go to the [Node.js download page](https://nodejs.org/en/) and download the _LTS version_ (version 16.x as of February 2022) and reinstall Node.js.
+First, go to the [Node.js download page](https://nodejs.org/en/) and download the _LTS version_ (version 16.x as of March 2022) and reinstall Node.js.
 
 Then, you will need to open Git Bash and run these commands:
 
@@ -87,7 +87,7 @@ When you finish installing, you should see Git Bash on your computer. Open it, t
 
 Node.js is a JavaScript runtime engine. It allows you to run JavaScript programs outside of Chrome, Safari, Edge or another web browser.
 
-You will need to have the latest _LTS_ version of Node installed as of February 2022 (16.x). If you already have Node.js installed, type `node -v` in Git Bash. If you do not have the latest version, you will need to remove Node.js and reinstall it again.
+You will need to have the latest _LTS_ version of Node installed as of March 2022 (16.x). If you already have Node.js installed, type `node -v` in Git Bash. If you do not have the latest version, you will need to remove Node.js and reinstall it again.
 
 If Node.js is up-to-date, you should update NPM. You can update it with:
 

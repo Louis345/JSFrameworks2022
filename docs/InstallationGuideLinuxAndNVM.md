@@ -42,7 +42,7 @@ Depending on your Linux distro, you could be replacing _brew_ with _apt_, _apt-g
 
 #### 3. We recommend you install Node.js with NVM
 
-We will be using the latest even numbered version of Node.js, and the default Node.js packages are typically a few major versions behind. A command like e.g. `sudo apt-get install -y nodejs` will not get you the latest LTS version (16.x as of February 2022). NVM will allow you to install the latest LTS version.
+We will be using the latest even numbered version of Node.js, and the default Node.js packages are typically a few major versions behind. A command like e.g. `sudo apt-get install -y nodejs` will not get you the latest LTS version (16.x as of March 2022). NVM will allow you to install the latest LTS version.
 
 # Node Version Manager (NVM)
 
@@ -149,7 +149,7 @@ Restart your terminal. Type `nvm --version`. You should see a version number lik
 
 ## Using NVM
 
-You have NVM installed, but you still need to install Node.js. You will need to have the latest LTS version of Node installed as of February 2022 (16.x).
+You have NVM installed, but you still need to install Node.js. You will need to have the latest LTS version of Node installed as of March 2022 (16.x).
 
 ```
 nvm install --lts
