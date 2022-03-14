@@ -1,3 +1,5 @@
+import Greeter from "./Greeter.js;"
+
 /**
  *  Return the highest number in the array
  * @param  { array }
@@ -8,7 +10,15 @@
  *
  **/
 
-const highestNumber = (array) => {};
+ const highestNumber = (array) => {
+  let largest = array[0];
+  for (let i = 0; i < array.length; i++){
+    if(largest < array[i]) {
+       largest = array[i];
+    }
+  };
+  return largest
+};
 
 /**
  * The next exercise uses ES6 modules, but we had to cut ES6 modules from some JavaScript Fundamentals classes.
