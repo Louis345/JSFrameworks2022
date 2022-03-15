@@ -1,4 +1,4 @@
-import Greeter from "./Greeter.js;"
+import Greeter from "./Greeter.js"
 
 /**
  *  Return the highest number in the array
