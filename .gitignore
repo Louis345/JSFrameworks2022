@@ -3,6 +3,7 @@
 # Usually, you would commit the package-lock.json. But for purposes of our class, it would be a mess.
 package-lock.json
 yarn.lock
+*.code-workspace
 
 # Created by https://www.toptal.com/developers/gitignore/api/react,reactnative,macos,linux,windows,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,reactnative,macos,linux,windows,visualstudiocode,vim
