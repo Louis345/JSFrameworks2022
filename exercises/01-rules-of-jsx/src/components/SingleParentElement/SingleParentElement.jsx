@@ -5,9 +5,10 @@ import React from "react";
  */
 const SingleParentElement = () => {
   return (
+    <>
       <p>React is the most popular Framework of 2022.</p>
       <p>React keeps the doctor away!</p>
-   
+    </>
   );
 };
 
