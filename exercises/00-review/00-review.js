@@ -11,13 +11,7 @@ import Greeter from "./Greeter.js"
  **/
 
  const highestNumber = (array) => {
-  let largest = array[0];
-  for (let i = 0; i < array.length; i++){
-    if(largest < array[i]) {
-       largest = array[i];
-    }
-  };
-  return largest
+ return Math.max.apply(null, array);
 };
 
 /**
@@ -55,7 +49,9 @@ function Greeter() {
  * combineArray(['Japan','China','India'], ['USA','UK']) // ['Japan','China','India','USA','UK']
  **/
 
-const combineArray = (array1, array2) => {};
+const combineArray = (array1, array2) => {
+  return [...array1, ...array2]
+};
 
 /**
  * Combine two objects into one
@@ -64,7 +60,9 @@ const combineArray = (array1, array2) => {};
  * @return {object} obj1 and obj2 combined
  */
 
-const combineObject = (obj1, obj2) => {};
+const combineObject = (obj1, obj2) => {
+  return { ...obj1, ...obj2 }
+};
 
 /**
  * Please use the higher order function map to solve this problem.
@@ -73,7 +71,9 @@ const combineObject = (obj1, obj2) => {};
  * @returns {array} new array, with each value doubled e.g. [2, 5, 10]
  */
 
-const doubleValues = (arr) => {};
+const doubleValues = (arr) => {
+  return arr.map(x => x * 2);
+};
 
 /**
  * * Please use the higher order function filter to solve this problem.
@@ -84,7 +84,9 @@ const doubleValues = (arr) => {};
  *   onlyEvenValues([1,2,3]) // [2]
  *   onlyEvenValues([5,1,2,3,10]) // [2,10]
  */
-const onlyEvenValues = (arr) => {};
+const onlyEvenValues = (arr) => {
+  return arr.filter(x => x % 2 == 0);
+};
 
 /**
  * Create a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercase and lowercase) removed.
@@ -104,7 +106,10 @@ const onlyEvenValues = (arr) => {};
  *  removeVowels('TIM') // ('tm')
  *  removeVowels('ZZZZZZ') // ('zzzzzz')
  */
-const removeVowels = (str) => {};
+const removeVowels = (str) => {
+  let newString = str.replace(/[aeiou]/gi, '');
+  return newString.toLocaleLowerCase();
+};
 
 /**
  * Solve this problem using the ternary operator.
@@ -116,7 +121,8 @@ const getIsHungryText = () => {
   //don't change this variable
   let isStomachEmpty = false;
   /* convert this if else statement into a ternary expression */
-
+  let isHungry = 
+    (isStomachEmpty) ? "Go eat something." : "Keep coding!";
   // let isHungry;
   // if (isStomachEmpty) {
   //   isHungry = "Go eat something.";
@@ -158,7 +164,9 @@ const getTempOfTomorrow = () => {
  *  addItems([1,5,6]) // 12
  *  addItems([1,-2,-3]) // -4
  */
-const addItems = (arr) => {};
+const addItems = (arr) => {
+  return arr.reduce((sum, num) => sum + num);
+};
 
 /**
  * Remove duplicate values from an array.
@@ -172,8 +180,8 @@ const addItems = (arr) => {};
  */
 
 const removeDuplicates = (array) => {
-  // Return the an array of unique values
-  return;
+  // Return the an array of unique value
+  return [...new Set(array)];
 };
 
 /**
