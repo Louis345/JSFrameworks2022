@@ -1,3 +1,20 @@
-/**
- * Put your CSS here
- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+body {
+  background-color: #000;
+  color: #FFE81F;
+}
+
+.App {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
