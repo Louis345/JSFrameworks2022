@@ -23,6 +23,6 @@ See the instructions below for where you are going to use this:
 
 ## Instructions
 
-Create a component called "Bio". It should have a property called "renderAll" and it should be boolean. If "renderAll" is true, it should render the entire bio text quoted above within a `<blockquote><blockerquote>`. If "renderAll" is false, it should render the first 500 characters, followed by an ellipse (...) inside of a `<div></div>` tag.
+Create a component called "Bio". It should have a property called "renderAll" and it should be boolean. If "renderAll" is true, it should render the entire bio text quoted above within a `<blockquote></blockquote>`. If "renderAll" is false, it should render the first 500 characters, followed by an ellipse (...) inside of a `<div></div>` tag.
 
 Your _src/App.js_ component should import you Bio component and should set "renderAll" as false.
