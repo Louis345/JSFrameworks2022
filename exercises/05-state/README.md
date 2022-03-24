@@ -18,7 +18,17 @@ npm install
 npm start
 ```
 
-If, at any time, you need to stop the app, press `ctrl+c`.
+To stop the application, press `ctrl+c`.
+
+To run the tests:
+
+```shell
+npm run test
+```
+
+If you do not see any test results, press `a` to run all tests. The tests will rerun whenever you make a change.
+
+To stop the tests, press `ctrl+c`.
 
 ## Challenge 1
 
@@ -38,6 +48,8 @@ The component will have two buttons. The first button will say "Read More". The 
 
 The "Read More" button will display the entire text. The "Read Less" button will truncate the set by the "maxLength" prop.
 
+You must use the `useState()` hook to solve this problem.
+
 ![](less-text.gif)
 
 ## Challenge 2
@@ -50,5 +62,11 @@ As a user, I would like to see the number of keystrokes a user types displayed o
 2. Import and display your "CharacterCount" component inside of _exercises/05-state/src/App.jsx_.
 3. It will render a `<textarea>` textbox that will capture user input.
 4. It will then render count of the number of characters in the textbox on the screen.
+
+### Acceptance Criteria
+
+You must display the character count to the screen.
+
+You must use the `useState()` hook to solve this problem.
 
 ![](character-count.gif)
