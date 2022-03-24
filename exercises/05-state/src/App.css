@@ -1,3 +1,5 @@
-/**
- * Write your CSS here
- */
+.box textarea {
+   width: 50%;
+   resize: none;
+   border: 2px solid rgb(39, 39, 68);
+ }
