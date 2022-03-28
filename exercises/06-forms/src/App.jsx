@@ -9,14 +9,14 @@ function App() {
     event.preventDefault();
     setDisplayResults(true);
   }
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    });
+  }
+  const [values, setValues] = useState({});
   const [displayResults, setDisplayResults] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zip, setZip] = useState('');
-  const [country, setCountry] = useState('');
   
   return (
     <form autoComplete="off" onSubmit={handleSubmit} className="container mt-4" method="POST">
@@ -30,8 +30,8 @@ function App() {
           name="firstName"
           type="text"
           className="form-control"
-          value={firstName}
-          onChange = {e => setFirstName(e.target.value)}
+          value={values.firstName}
+          onChange = {handleChange}
         />
       </div>
 
@@ -44,8 +44,8 @@ function App() {
           name="lastName"
           type="text"
           className="form-control"
-          value={lastName}
-          onChange = {e => setLastName(e.target.value)}
+          value={values.lastName}
+          onChange = {handleChange}
         />
       </div>
 
@@ -58,8 +58,8 @@ function App() {
           name="addressLine1"
           type="text"
           className="form-control"
-          value={address}
-          onChange = {e => setAddress(e.target.value)}
+          value={values.address}
+          onChange = {handleChange}
         />
         <p className="help-block text-muted">
           Street Address, P.O. Box, Company Name, C/O
@@ -75,8 +75,8 @@ function App() {
         name="city" 
         type="text" 
         className="form-control" 
-        value={city} 
-        onChange= {e => setCity(e.target.value)}/>
+        value={values.city} 
+        onChange= {handleChange}/>
       </div>
 
       <div className="mb-3">
@@ -88,8 +88,8 @@ function App() {
         id="state" 
         name="state" 
         className="form-control" 
-        value={state}
-        onChange = {e => setState(e.target.value)}
+        value={values.state}
+        onChange = {handleChange}
         />
       </div>
 
@@ -102,8 +102,8 @@ function App() {
           name="postalCode"
           type="text"
           className="form-control"
-          value={zip}
-          onChange = {e => setZip(e.target.value)}
+          value={values.zip}
+          onChange = {handleChange}
         />
       </div>
 
@@ -116,8 +116,8 @@ function App() {
         id="country" 
         name="country" 
         className="form-control" 
-        value={country}
-        onChange = {e => setCountry(e.target.value)}
+        value={values.country}
+        onChange = {handleChange}
         />
       </div>
 
@@ -133,13 +133,13 @@ function App() {
         <div className="card card-body bg-light mt-4 mb-4">
           Results:
           <ul className="list-unstyled mb-0">
-            {<li>{firstName}</li>}
-            {<li>{lastName}</li>}
-            {<li>{address}</li>}
-            {<li>{city}</li>}
-            {<li>{state}</li>}
-            {<li>{zip}</li>}
-            {<li>{country}</li>}
+            {<li>{values.firstName}</li>}
+            {<li>{values.lastName}</li>}
+            {<li>{values.addressLine1}</li>}
+            {<li>{values.city}</li>}
+            {<li>{values.state}</li>}
+            {<li>{values.postalCode}</li>}
+            {<li>{values.country}</li>}
           </ul>
         </div>
       )}
