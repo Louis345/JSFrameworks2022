@@ -57,4 +57,4 @@ You must complete this assignment with the `useState()` hook(s).
 
 All inputs must be controlled inputs and you must have a controlled form.
 
-Everything that the user entered into the form should be displayed on the page after the user submits the form.
+Everything that the user entered into the form should be displayed below the form.
