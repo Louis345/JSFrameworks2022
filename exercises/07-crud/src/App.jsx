@@ -5,9 +5,7 @@ const GroceryList = () => {
 
   const [item, setItem] = useState('');
   const [price, setPrice] = useState('');
-  const [actionItem, setActionItem] = useState([
-    {item: 'Banana', price: '3.99'}
-  ])
+  const [actionItem, setActionItem] = useState([])
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -20,6 +18,10 @@ const GroceryList = () => {
     setActionItem(
       actionItem.filter((item, currentIndex) => currentIndex !== index)
     )
+  }
+
+  const clearItems = () => {
+
   }
 
   return (
@@ -72,7 +74,6 @@ const GroceryList = () => {
           </thead>
           <tbody>
             {actionItem.map((item, index) => {
-            console.log(item)
               return (
                 <tr>
                   <td>{item.item}</td>
@@ -108,7 +109,7 @@ const GroceryList = () => {
         </p>
 
         <div className="d-flex justify-content-end">
-          <button type="button" className="btn btn-outline-success">
+          <button onClick={clearItems} type="button" className="btn btn-outline-success">
             Clear
           </button>
         </div>
