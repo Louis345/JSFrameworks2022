@@ -3,20 +3,24 @@ import "./App.css";
 
 const GroceryList = () => {
 
-  const handleSubmit = event => {
-    event.preventDefault();
-  }
-
-  const addItem = () => {
-    setActionItems([...actionItems])
-  }
-
   const [item, setItem] = useState('');
   const [price, setPrice] = useState('');
-
-  const [actionItems, setActionItems] = useState([
-
+  const [actionItem, setActionItem] = useState([
+    {item: 'Banana', price: '3.99'}
   ])
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    setActionItem([
+    ...actionItem, {item , price }
+    ])
+  }
+
+  const deleteItem = (index) => {
+    setActionItem(
+      actionItem.filter((item, currentIndex) => currentIndex !== index)
+    )
+  }
 
   return (
     <div className="container">
@@ -48,7 +52,7 @@ const GroceryList = () => {
           </div>
           
           <div className="col-md-auto">
-            <button onSubmit={addItem}  type="submit" className="btn btn-success">
+            <button type="submit" className="btn btn-success">
               Add
             </button>
           </div>
@@ -67,17 +71,18 @@ const GroceryList = () => {
             </tr>
           </thead>
           <tbody>
-            {actionItems.map((item, index) => {
+            {actionItem.map((item, index) => {
+            console.log(item)
               return (
-              <tr>
-                <td>{item}</td>
-                <td>{price}</td>
-                <td>
-                  <button>
-                    &times;
-                  </button>
-                </td>
-              </tr>
+                <tr>
+                  <td>{item.item}</td>
+                  <td>{item.price}</td>
+                  <td>
+                    <button onClick={() => deleteItem(index)}>
+                      &times;
+                    </button>
+                  </td>
+                </tr>
               )
             })}
             
