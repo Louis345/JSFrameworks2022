@@ -83,14 +83,20 @@ function App() {
         <label htmlFor="state" className="control-label">
           State / Province / Region
         </label>
-        { }
         <select 
         id="state" 
         name="state" 
         className="form-control" 
         value={values.state}
         onChange = {handleChange}
-        />
+        >
+          <option value = ''></option>
+          {States.map((state, index) => {
+            return (
+              <option key={`state-${index}`} value={state}>{state}</option>
+            )
+          })}
+        </select>
       </div>
 
       <div className="mb-3">
@@ -111,14 +117,20 @@ function App() {
         <label htmlFor="country" className="control-label">
           Country
         </label>
-        {/* Loop through the countries you imported here */}
         <select 
         id="country" 
         name="country" 
         className="form-control" 
         value={values.country}
         onChange = {handleChange}
-        />
+        >
+          <option value = ''></option>
+          {Countries.map((country, index) => {
+            return (
+              <option key={`country-${index}`} value={country}>{country}</option>
+            )
+          })}
+        </select>
       </div>
 
       <button type="submit" className="btn btn-primary">
