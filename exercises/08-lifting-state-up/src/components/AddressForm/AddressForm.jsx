@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import countries from "../../assets/countries";
 import states from "../../assets/states";
-import { useState } from "react";
 function AddressForm({setDisplayResults, values, setValues}) {
 
   const handleChange = (e) => {
