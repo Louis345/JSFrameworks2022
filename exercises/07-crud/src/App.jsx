@@ -6,7 +6,6 @@ const GroceryList = () => {
   const [item, setItem] = useState('');
   const [price, setPrice] = useState('');
   const [actionItem, setActionItem] = useState([])
-  console.log(actionItem);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -24,7 +23,9 @@ const GroceryList = () => {
   const clearItems = () => {setActionItem([])}
 
   const calcCost = () => {
-
+    return actionItem.reduce((total, item) => {
+      return total + item.price;
+    }, 0);
   }
 
   return (
