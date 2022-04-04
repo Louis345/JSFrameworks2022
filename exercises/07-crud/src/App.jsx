@@ -10,7 +10,7 @@ const GroceryList = () => {
   const handleSubmit = event => {
     event.preventDefault();
     setActionItem([
-    ...actionItem, {item , price }
+    ...actionItem, {item , price}
     ])
   }
 
@@ -23,9 +23,10 @@ const GroceryList = () => {
   const clearItems = () => {setActionItem([])}
 
   const calcCost = () => {
+    console.log('hello')
     return actionItem.reduce((total, item) => {
       return total + item.price;
-    }, 0);
+    },0)
   }
 
   return (
@@ -109,7 +110,7 @@ const GroceryList = () => {
         </table>
 
         <p className="lead">
-          <strong>Total Cost: ${calcCost}</strong>
+          <strong>Total Cost: ${calcCost()}</strong>
         </p>
 
         <div className="d-flex justify-content-end">
