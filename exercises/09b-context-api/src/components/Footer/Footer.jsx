@@ -1,6 +1,8 @@
 // Import what you need from React
 import Languages from "../Languages/Languages";
 import translations from "./FooterTranslations.json";
+import { TranslatorContext } from "../../contexts/TranslatorContext";
+import { useContext } from "react";
 // Import "TranslatorContext"
 
 function Footer() {
@@ -9,11 +11,11 @@ function Footer() {
    * @see exercises/08a-context-api/src/App.jsx
    * @see solutions/08a-context-api/App.solutions.jsx
    */
-
+  const here = useContext(TranslatorContext)
   /**
    * Replace "en" with a constant or variable.
    */
-  const t = translations["en"];
+  const t = translations[here.language];
 
   /**
    * You do not have to change anything below this line.
