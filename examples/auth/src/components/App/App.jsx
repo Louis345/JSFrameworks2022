@@ -14,9 +14,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   /**
-   * When a user is logged in, a token is stored in local storage.
+   * When a user is logged in, a token is stored in state.
    */
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState("");
+  /**
+   * If using localStorage, you would do this instead:
+   * @example const [token, setToken] = useState(localStorage.getItem("token"));
+   */
 
   const login = async () => {
     setIsLoading(true);
@@ -33,9 +37,10 @@ function App() {
         },
       });
       /**
-       * I'm telling React the user is logged in by store the token in local storage and state.
+       * I'm telling React the user is logged in by store the token in state.
+       * If I was using localStorage, I would also store the token in localStorage too
+       * @example localStorage.setItem("token", response.data.token);
        */
-      localStorage.setItem("token", response.data.token);
       setToken(response.data.token);
       setUsername("");
     } catch (error) {
@@ -53,10 +58,13 @@ function App() {
     setIsLoading(false);
   };
   /**
-   * When the user is logged out, the token is removed from local storage and state.
+   * When the user is logged out, the token is removed from state.
    */
   const logout = () => {
-    localStorage.removeItem("token");
+    /**
+     * If I were storing the token in localStorage, I would also need to remove the token from localStorage as well.
+     * @example localStorage.removeItem("token");
+     */
     setToken("");
   };
 
