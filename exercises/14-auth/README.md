@@ -1,4 +1,4 @@
-# Authentication Challenge 1
+# Authorization and Authentication Challenge
 
 In Visual Studio code, press `command+shift+v` (Mac) or `ctrl+shift+v` (Windows) to open a Markdown preview.
 
@@ -16,7 +16,7 @@ You will need to have two terminal windows open and running at once. If you are 
 
 ![Split screen icon in Visual Studio code](../../authorization-server/two-terminals.png)
 
-In one terminal window, you will need to run the authentication server. Please follow the _Getting Started_ steps [in this README.md](../../authorization-server/README.md) on how to install and start the authentication server.
+In one terminal window, you will need to run the authorization and API server. Please follow the _Getting Started_ steps [in this README.md](../../authorization-server/README.md) on how to install and start the server.
 
 In the other terminal window, you will need to navigate to the this folder, install all dependencies, and start this exercise.
 
