@@ -1,4 +1,4 @@
-import { Route, useHistory } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
 import { OKTA_APP_REDIRECT_URI, OKTA_OIDC_CONFIG } from "../../oktaConfig";
@@ -37,7 +37,7 @@ function App() {
 
         {/* The SecureRoute will redirect the user to "/login" if they aren't logged in. */}
         <SecureRoute exact path="/home" component={Home} />
-        <SecureRoute path="/" component={Home} />
+        <Redirect to="/home" />
       </Security>
     </>
   );

@@ -20,5 +20,5 @@ export const OKTA_WIDGET_CONFIG = {
   clientId: OKTA_APP_CLIENT_ID,
   redirectUri: OKTA_APP_REDIRECT_URI,
   scopes: SCOPES,
-  useInteractionCodeFlow: false,
+  useInteractionCodeFlow: true,
 };

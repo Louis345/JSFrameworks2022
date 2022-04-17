@@ -38,13 +38,15 @@ function Movies() {
         })
         .catch((err) => {
           console.error(err);
-          setErrorMessage("Oh no! An unexpected error occurred.");
+          setErrorMessage("Oh no! Could not lookup movies from the movies API");
         });
     }
   }, [token]);
 
   return (
     <>
+      <div className="alert alert-success">Hurray! You logged in!</div>
+
       {Object.values(movies).map((movie, idx) => {
         return (
           <div className="media mb-3" key={`movie-${idx}`}>

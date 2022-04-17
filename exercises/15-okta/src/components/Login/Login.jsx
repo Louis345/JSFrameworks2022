@@ -3,8 +3,6 @@ import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import NavBar from "../NavBar/NavBar";
 
 function Login() {
-  // Find out whether or not the user is logged in
-
   /**
    * If the user is logged in, this should redirect to main content.
    * Otherwise, display the Okta login form.

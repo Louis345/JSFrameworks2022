@@ -1,4 +1,4 @@
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 // Import things here
 
 import Login from "../Login/Login";
@@ -26,6 +26,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/home" component={Home} />
         <Route path="/" component={Home} />
+        <Redirect to="/home" />
       </Switch>
     </>
   );
