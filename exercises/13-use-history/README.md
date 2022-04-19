@@ -23,6 +23,10 @@ NOTE that when you first start this assignment, you will see a blank screen.
 
 As a user, I would like to be redirected to a thank you page after I subscribe to YourStylist.com's newsletter
 
+![The subscribe page](./subscribe.png)
+
+![The thank you page that the user will see after they click on the subscribe button](./thank-you.png)
+
 ## Acceptance Criteria
 
 | Route                           | Component or Behavior                        |
