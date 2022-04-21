@@ -1,22 +1,36 @@
 // You might need to import something from React
-import { useState } from "react";
-// import Axios (or use Fetch)
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Home({ token, logout }) {
   const [movies, setMovies] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
-  /**
-   * Make an AJAX request to http://localhost:7001/api/movies to get a list of movies.
-   * Be sure to provide the token in the AJAX request.
-   */
+  const getMovies = async () => {
+    try {
+      const response = await axios("http://localhost:7001/api/movies", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setMovies(response.data);
+    } catch (error) {
+      setErrorMessage("Something went wrong");
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   return (
     <div className="container mt-2 mb-5">
       <div className="d-flex justify-content-between">
         <h1 className="h2">You are logged in!</h1>
-        {/* Make this button functional */}
-        <button className="btn btn-primary">Logout</button>
+        <button className="btn btn-primary" onClick={logout}>
+          Logout
+        </button>
       </div>
       {Object.values(movies).map((movie, idx) => {
         return (
