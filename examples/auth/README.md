@@ -1,5 +1,7 @@
 # Simple Authentication & Authorization Example
 
+In Visual Studio code, press `command+shift+v` (Mac) or `ctrl+shift+v` (Windows) to open a Markdown preview.
+
 ## Getting Started
 
 Before starting this application, you will need to install the companion authorization and API server. Please follow the _Getting Started_ steps [in this README.md](../../authorization-server/README.md).

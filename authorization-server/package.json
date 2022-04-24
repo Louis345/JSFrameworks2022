@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon .",
-    "install": "npm install"
+    "dev": "nodemon ."
   },
   "dependencies": {
     "@okta/jwt-verifier": "2.3",
