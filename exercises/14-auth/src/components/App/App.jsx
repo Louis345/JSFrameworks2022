@@ -7,7 +7,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   const login = async () => {
     try {
@@ -22,6 +22,8 @@ function App() {
         },
       });
       setToken(response.data.token);
+      const newToken = response.data.token;
+      localStorage.setItem("token", newToken);
       setUsername("");
     } catch (error) {
       if (error?.response.status === 401) {
@@ -39,7 +41,7 @@ function App() {
       }
     });
     setToken("");
-    console.log(response);
+    localStorage.removeItem("token");
   };
 
   const handleChange = (e) => {
