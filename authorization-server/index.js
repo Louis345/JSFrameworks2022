@@ -25,7 +25,7 @@ const PORT = 7001;
 const BASE_URL = "http://localhost:" + PORT;
 
 // Loading configuration for Okta if it exists
-[".env", "../examples/okta/.env"].map((path) => {
+[".env", "../exercises/15-okta/.env", "../examples/okta/.env"].map((path) => {
   if (fs.existsSync(path)) {
     dotenv.config({ path, debug: true });
   }
