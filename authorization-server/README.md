@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 
-After running the server on your machine, you will be greeted with a message Your server is running on http://localhost:7000.
+After running the server on your machine, you will be greeted with a message Your server is running on http://localhost:7001.
 
 At any point, if you need to stop the server, press `ctrl+c` .
 
@@ -38,11 +38,11 @@ The API is a REST based API. Here are the different endpoints:
 
 | Endpoint                              | Method | Authorization | Request Body          | Response                                                                                             |
 | ------------------------------------- | :----: | ------------- | --------------------- | ---------------------------------------------------------------------------------------------------- |
-| http://localhost:7000/api/login       |  POST  | n/a           | username and password | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Invalid credentials            |
-| http://localhost:7000/api/movies      |  GET   | JWT           | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT |
-| http://localhost:7000/api/okta/movies |  GET   | JWT from Okta | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT |
-| http://localhost:7000/api/logout      | DELETE | JWT           | -                     | Status 200 - Success                                                                                 |
-| http://localhost:7000/api/refresh     |  GET   | n/a           | -                     | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Usually need to login          |
+| http://localhost:7001/api/login       |  POST  | n/a           | username and password | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Invalid credentials            |
+| http://localhost:7001/api/movies      |  GET   | JWT           | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT |
+| http://localhost:7001/api/okta/movies |  GET   | JWT from Okta | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT |
+| http://localhost:7001/api/logout      | DELETE | JWT           | -                     | Status 200 - Success                                                                                 |
+| http://localhost:7001/api/refresh     |  GET   | n/a           | -                     | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Usually need to login          |
 
 For the login APIs, the following user account will work:
 
@@ -51,13 +51,13 @@ Password: password
 
 ### Logging in
 
-To login, send the user's username and password in a POST request to http://localhost:7000/api/login. For example:
+To login, send the user's username and password in a POST request to http://localhost:7001/api/login. For example:
 
 ```javascript
 axios
   .request({
     method: "POST",
-    url: "http://localhost:7000/api/login",
+    url: "http://localhost:7001/api/login",
     headers: {
       "Content-Type": "application/json",
     },
@@ -92,12 +92,12 @@ If the credentials are not correct, then you will receive an HTTP status of unau
 
 ### Getting a list of movies
 
-You will send a GET request to http://localhost:7000/api/movies. You will need to include the JWT access token that you got from the login request inside of the Authorization header like this:
+You will send a GET request to http://localhost:7001/api/movies. You will need to include the JWT access token that you got from the login request inside of the Authorization header like this:
 
 ```javascript
 axios.request({
   method: "GET",
-  url: "http://localhost:7000/api/movies",
+  url: "http://localhost:7001/api/movies",
   headers: {
     Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`,
   })
@@ -111,7 +111,7 @@ axios.request({
 });
 ```
 
-If you are using Okta, the endpoint will be http://localhost:7000/api/okta/movies and you will need to use Okta libraries to get the JWT access token. For an example, see _examples/okta/src/components/Movies/Movies.jsx_
+If you are using Okta, the endpoint will be http://localhost:7001/api/okta/movies and you will need to use Okta libraries to get the JWT access token. For an example, see _examples/okta/src/components/Movies/Movies.jsx_
 
 If your request is successful, you will get a list of movies like this:
 
@@ -132,13 +132,13 @@ If there is some problem related to authentication (e.g. no authorization header
 
 ### Logging out
 
-To logout, send a delete request with your JWT to http://localhost:7000/api/logout. If it is successful, you will receive an HTTP status code of 200.
+To logout, send a delete request with your JWT to http://localhost:7001/api/logout. If it is successful, you will receive an HTTP status code of 200.
 
 ```javascript
 axios
   .request({
     method: "DELETE",
-    url: "http://localhost:7000/api/logout",
+    url: "http://localhost:7001/api/logout",
     headers: {
       Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`,
     },
@@ -158,13 +158,13 @@ There are use cases where your JWT will be lost from state and you will need to 
 
 By using this end-point, you will be "relogging in" the user behind-the-scenes, without the user knowing that it is happening. This is called a "silent refresh".
 
-To refresh the JWT token, send a GET request to http://localhost:7000/api/refresh.
+To refresh the JWT token, send a GET request to http://localhost:7001/api/refresh.
 
 ```javascript
 axios
   .request({
     method: "GET",
-    url: "http://localhost:7000/api/refresh",
+    url: "http://localhost:7001/api/refresh",
   })
   .then((response) => {
     // This is how you get the token
@@ -178,7 +178,7 @@ axios
   });
 ```
 
-The response will be the same as the http://localhost:7000/api/login endpoint. If the user is logged in on the back-end, and the authentication behind-the-scenes is valid (a session cookie with the httpOnly flag is automatically sent with each HTTP request without you having to do anything), then you will receive a new JWT token and expiration. Otherwise, you will receive a HTTP status code of 401. When this happens, you should redirect the user to the login form.
+The response will be the same as the http://localhost:7001/api/login endpoint. If the user is logged in on the back-end, and the authentication behind-the-scenes is valid (a session cookie with the httpOnly flag is automatically sent with each HTTP request without you having to do anything), then you will receive a new JWT token and expiration. Otherwise, you will receive a HTTP status code of 401. When this happens, you should redirect the user to the login form.
 
 For an in-depth explaination of the silent refresh (and the whole authentication flow in general), see [The Ultimate Guide to handling JWTs on frontend clients (GraphQL)](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh).
 
@@ -196,7 +196,7 @@ You can fake handling a server outage by stopping the server with `ctrl+c` .
 
 You can speed up the JWT expiry by passing an expiry value in milliseconds with the start command. For example, to have the JWT token expire every 10 seconds (10,000 milliseconds), run `npm start --expiry 10000` .
 
-If you like, you can mimic a real life scenario with a monolithic app (where the back-end and API will have the same URL) by [proxying the server](https://create-react-app.dev/docs/proxying-api-requests-in-development/). What this essentially means is that instead of sending AJAX requests to e.g. http://localhost:7000/api/login, you would send it to _/api/login_. You often do this to avoid CORS issues when developing on your local machine. To this, setup a proxy in your React application's _package.json_ file.
+If you like, you can mimic a real life scenario with a monolithic app (where the back-end and API will have the same URL) by [proxying the server](https://create-react-app.dev/docs/proxying-api-requests-in-development/). What this essentially means is that instead of sending AJAX requests to e.g. http://localhost:7001/api/login, you would send it to _/api/login_. You often do this to avoid CORS issues when developing on your local machine. To this, setup a proxy in your React application's _package.json_ file.
 
 ```json
 {
@@ -204,7 +204,7 @@ If you like, you can mimic a real life scenario with a monolithic app (where the
   "version": "0.1.0",
   "private": true,
   // ...
-  "proxy": "http://localhost:7000"
+  "proxy": "http://localhost:7001"
 }
 ```
 

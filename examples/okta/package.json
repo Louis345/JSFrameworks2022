@@ -1,0 +1,43 @@
+{
+  "name": "okta",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@okta/okta-auth-js": "^6.4.2",
+    "@okta/okta-react": "^6.4.3",
+    "@okta/okta-signin-widget": "^6.2.1",
+    "axios": "^0.26.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "5.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  },
+  "scripts": {
+    "start": "(cp ../../exercises/15-okta/.env . || echo \"Could not copy .env file\") && concurrently \"npm start --prefix ../../authorization-server/\" \"react-scripts start\"",
+    "client": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:7001"
+}

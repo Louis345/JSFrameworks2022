@@ -107,7 +107,7 @@ If you must drop the course, please contact Rachel Sheridan at rachel@albanycanc
 
 **Important Note:** This schedule, along with course assignments and due dates are subject to change. It is the student’s responsibility to check the Slack channel, course materials and updates to the syllabus. Any changes will be clearly noted in course announcements.
 
-### Weeks 1 - 4
+### Weeks 1 - 3
 
 During the first few weeks, we will learn the basics of React. Our lectures will introduce:
 
@@ -118,36 +118,50 @@ During the first few weeks, we will learn the basics of React. Our lectures will
 - Events in React
 - Forms in React
 
-### Week 4 - 5
+### Week 3 - 4
 
 We will then looks into some out-of-the-box ways in which you can share state between React components. We will teach:
 
 - Lifting State Up
 - Context API
 
-### Week 5 - 7
+### Week 4 - 5
 
 In the beginning of the second half of the class, we will learn about how to handle AJAX and asynchronous code within React.
 
-- _useEffect_ Hook
+- Effects and the _useEffect_ Hook
 - AJAX and Asynchronous Code in React
 - Suspense
+- SWR
 
-### Weeks 7 - 10
+### Weeks 6 - 8
 
-Next, we will cover setting up and structuring your application. We will learn about the common problems you will need to solve to build your application.
+Next, we will cover setting up and structuring your application. We will learn about the common problems you will need to solve to build your application, like routing and signing into your application.
 
+- Single Page Application (SPA)
 - React Router
 - Authentication and Authorization
 - JWT Tokens
+- Okta
 
-### Week 10 - 11
+### Week 8 - 10
 
-In this section, we will talk about areas of the profession that is good to know as a front-end developer, and how they related or integrate with React. We will be focusing on:
+In this section, we will talk about more advanced React and front-end software development topics. Depending on time, we will cover:
 
+- Typescript
+- State Management with Zustand
+- Automated Testing with React
 - Advanced React Topics
-- Automated Testing
-- TypeScript
+- React Native
+- Gatsby and Next.js
+- React Query
+
+### Week 11 - 12
+
+In this section, we will learn cover subjects that you need to know as a software engineer outside of coding. We will talk about:
+
+- Software Development Lifecycle
+- Web Security
 
 ### Weeks 12
 

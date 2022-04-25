@@ -32,6 +32,7 @@ As a user, I should be able to select the number of new random dog images that I
 ## Acceptance Criteria
 
 - The application should make AJAX requests to the _Random Dog Image API_ inside the useEffect hook.
+- You should have dependencies inside your useEffect hook.
 - The application should use the useEffect hook at least once.
 - Immediately after the component first renders, it should make a request to get one random dog image and display it on the screen.
 - When the user selects a number from the dropdown, the application should make another AJAX request and it should display the number of images on the screen that the user selected.
