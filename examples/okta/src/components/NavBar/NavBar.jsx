@@ -12,7 +12,7 @@ function NavBar() {
      * When user isn't authenticated, forget any user info
      */
     if (!authState || !authState.isAuthenticated) {
-      setUserInfo(null);
+      setUserInfo({});
     } else {
       /**
        * Look up the user's info

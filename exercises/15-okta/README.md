@@ -47,7 +47,7 @@ As a user, I should see my name in the top right of the navigation once I signin
 
 ### Part 1: Create an Okta application integration
 
-You must [signup for Okta Developer](https://developer.okta.com/signup/) or [login to the Okta Admin Console](https://developer.okta.com/login/).
+You must [signup for Okta Developer](https://developer.okta.com/signup/) or [login to the Okta Admin Console](https://developer.okta.com/login/). Please create a new username and password instead of signing up with Github or Google. If you signup with Github or Google, you will need to reset your password later on, and there may be permission errors when you try to do this.
 
 We will try to use the _interaction grant type_. To enable this:
 
@@ -121,10 +121,23 @@ You will need to run the authorization and API server. Please follow the _Gettin
 
 In _src/components/Movies/Movies.jsx_, you will need to get the Okta token from Okta so that it to the movies API inside of an _Authorization_ header. See _examples/okta/src/components/Movies/Movies.jsx_ for an example of how to do this.
 
-### Part 5: Looking up user information from Okta
+### Part 5: Seeing whether or not a user has authenticated
+
+If you need to conditionally render content based on whether or not the user is logged in, you can use get this information from Okta's `useOktaAuth` hook.
+
+Complete _src/components/Login/Login.jsx_ so that it will redirect to user page to the home page if they have already signed in.
+
+### Part 6: Looking up user information from Okta
 
 If you need to display the user's name, email address, or some other related information, you can do this with Okta. Inside of _/src/components/NavBar/NavBar.jsx_, you are going to call on the Okta API to lookup and then display the user's full name on the top right of the screen.
 
 ## Troubleshooting
 
+If you see any CORS errors from Otka, this mean you will need to add `http://localhost:3000` as a trusted domain. See https://developer.okta.com/docs/guides/enable-cors/main/#browser-support on how to do this.
+
 If you are having trouble logging in, view the logs inside of the Admin Console. Go to _Reports > System Log_.
+
+You can view your OAuth meta data here. Replace "yourdomain" with your Okta domain.
+
+- Interaction flow: https://yourdomain/oauth2/default/.well-known/openid-configuration
+- Authorization flow: https://dev-03173671.okta.com/oauth2/default/.well-known/oauth-authorization-server

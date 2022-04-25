@@ -5,14 +5,14 @@ import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
 import { OKTA_WIDGET_CONFIG } from "../../oktaConfig";
 
 function OktaSignInWidget() {
-  const { oktaAuth, authState } = useOktaAuth();
+  const { oktaAuth } = useOktaAuth();
   const widgetRef = useRef();
 
   useEffect(() => {
     /**
      * Return if the <div> below hasn't rendered yet or if Okta isn't ready to render yet.
      */
-    if (!widgetRef.current || !authState) {
+    if (!widgetRef.current) {
       return false;
     }
     /**

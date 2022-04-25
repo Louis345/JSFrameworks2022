@@ -26,10 +26,7 @@ function Movies() {
         .request({
           url: "http://localhost:7001/api/okta/movies",
           headers: {
-            /**
-             * We are adding the access token as an Authorization header like this
-             */
-            Authorization: `Bearer ${token}}`,
+            // Add the authorization header here
           },
         })
         .then((response) => {

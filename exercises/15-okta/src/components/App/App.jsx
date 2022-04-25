@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 // Import things here
+import config from "../../oktaConfig";
 
 import Login from "../Login/Login";
 import Home from "../Home/Home";
@@ -25,7 +26,6 @@ function App() {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/home" component={Home} />
-        <Route path="/" component={Home} />
         <Redirect to="/home" />
       </Switch>
     </>
