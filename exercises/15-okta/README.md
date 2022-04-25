@@ -140,4 +140,4 @@ If you are having trouble logging in, view the logs inside of the Admin Console.
 You can view your OAuth meta data here. Replace "yourdomain" with your Okta domain.
 
 - Interaction flow: https://yourdomain/oauth2/default/.well-known/openid-configuration
-- Authorization flow: https://dev-03173671.okta.com/oauth2/default/.well-known/oauth-authorization-server
+- Authorization flow: https://yourdomain/oauth2/default/.well-known/oauth-authorization-server
