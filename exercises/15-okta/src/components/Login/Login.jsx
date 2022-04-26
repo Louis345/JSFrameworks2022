@@ -2,6 +2,7 @@
 import { Redirect } from "react-router-dom";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import NavBar from "../NavBar/NavBar";
+import  OktaSignInWidget  from "./OktaSignInWidget";
 
 function Login() {
   /**
@@ -34,9 +35,7 @@ function Login() {
       }
     >
       <NavBar />
-      <p className="container pt-2 pb-2">
-        TODO put the <code>&lt;OktaSignInWidget /&gt;</code> here.
-      </p>
+      <OktaSignInWidget />
     </ErrorBoundary>
   );
 }
