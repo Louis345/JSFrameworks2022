@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 // Import something here
+import { useOktaAuth } from "@okta/okta-react";
 import axios from "axios";
 
 function Movies() {
@@ -10,7 +11,8 @@ function Movies() {
    * The token is stored in "authState".
    * "authState" is null until the token is loaded from storage.
    */
-  const token = "TODO replace me with Okta's token";
+  const { authState } = useOktaAuth();
+  const token = authState?.accessToken?.accessToken;
   /**
    * Makes an API request to our back-end.
    * Includes Okta's access token, so that the back-end
@@ -26,7 +28,7 @@ function Movies() {
         .request({
           url: "http://localhost:7001/api/okta/movies",
           headers: {
-            // Add the authorization header here
+           Authorization: `Bearer ${token}`
           },
         })
         .then((response) => {
@@ -58,7 +60,7 @@ function Movies() {
               <h2 className="h3">{movie.title}</h2>
               <p>{movie.synopsis}</p>
             </div>
-          </div>
+          </div> 
         );
       })}
       {errorMessage && (

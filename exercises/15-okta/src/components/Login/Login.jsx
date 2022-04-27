@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import NavBar from "../NavBar/NavBar";
 import  OktaSignInWidget  from "./OktaSignInWidget";
+import { useOktaAuth } from "@okta/okta-react"
 
 function Login() {
   /**
@@ -12,7 +13,9 @@ function Login() {
    * 3. If a user is logged in, then "authState" is set to an object and will equal { isAuthenticated: true }
    * If not logged in, then { isAuthenticated: false }
    */
-  const authState = "TODO complete me";
+  const { authState } = useOktaAuth();
+
+
   /*
    * Since "authState" will be null at first when it is looking up whether or not the user is logged in,
    * we will want to wait to render the Okta login form
@@ -24,6 +27,7 @@ function Login() {
    * If the user is logged in, redirect to main content.
    * Otherwise, display the Okta login form.
    */
+   console.log(authState);
   return authState.isAuthenticated ? (
     <Redirect to="/" />
   ) : (

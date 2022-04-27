@@ -1,13 +1,27 @@
 import { useState, useEffect } from "react";
+import { useOktaAuth } from "@okta/okta-react";
+
 // Import something here
 
 function NavBar() {
   // Something goes here
   const [userInfo, setUserInfo] = useState({});
+  const { authState, oktaAuth } = useOktaAuth();
   /**
    * Looks up the user's name in Okta
    */
   // Add useEffect block here and lookup the user's name
+
+  useEffect(() => {
+    if (!authState || !authState.isAuthenticated) {
+      setUserInfo({});
+    } else {
+      oktaAuth
+        .getUser()
+        .then((info) => setUserInfo(info))
+        .catch((err) => console.error(err));
+    }
+  }, [authState, oktaAuth]);
 
   return (
     <nav className="navbar navbar-light bg-primary text-white">
