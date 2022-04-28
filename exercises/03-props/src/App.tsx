@@ -3,9 +3,8 @@ import Welcome from "./Components/welcome";
 
 function App() {
   return <div className="App"> 
-   <Welcome name='Caleb' age='24'/>
-   <Welcome name ='Michael'/>
-   <Welcome age='26'/>
+   <Welcome name='Randy' age={42}/>
+   <Welcome name='Ricky' age={24}/>
   </div>;
 }
 
