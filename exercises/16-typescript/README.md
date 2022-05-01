@@ -9,7 +9,7 @@ TypeScript is a very marketable skill for those of you who are job searching. It
 ## Examples and Documentation
 
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
-- TypeScript and React: [Components](https://fettblog.eu/typescript-react/components/) | [Hooks](https://fettblog.eu/typescript-react/hooks/) | [Events](https://fettblog.eu/typescript-react/events/)
+- TypeScript and React: [Components](https://fettblog.eu/typescript-react/components/) | [Hooks](https://fettblog.eu/typescript-react/hooks/) | [Events](https://fettblog.eu/typescript-react/events/) | [ErrorBoundaries](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/error_boundaries)
 - [TutorialsTeacher](https://www.tutorialsteacher.com/typescript)
 
 ## Getting Started & Instructions
@@ -18,6 +18,7 @@ You will be refactoring two of your previous assignments to use TypeScript.
 
 - exercises/03-props/
 - exercises/06-forms/
+- exercises/11-suspense-swr/
 
 To convert these assignments to TypeScript assignment, you will need to navigate to the root of each and then install all React TypeScript dependencies. For example, for the _03-props_, you would do:
 
@@ -57,6 +58,10 @@ Rename the _index.js_ file as _index.tsx_ and then start the application with `n
 ```
 
 Rename all files that contain React components so that they end with _.tsx_. You will see errors on your screen. Your job is to refactor the code so that it is in TypeScript.
+
+In _exercises/11-suspense-swr/_ is using React v18. You will need to define the type of _HTMLELement_ on `document.getElementById("root")`. See https://www.skovy.dev/blog/getting-started-react-concurrent-mode-typescript?seed=89rz6y on how to do this.
+
+For the `<ErrorBoundary />` component, see an example here: https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/error_boundaries
 
 ## Acceptance Criteria
 
