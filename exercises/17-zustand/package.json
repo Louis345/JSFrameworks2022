@@ -1,5 +1,5 @@
 {
-  "name": "pokemon",
+  "name": "17-zustand",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,9 +17,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.6.4",
-    "web-vitals": "^2.1.4",
-    "zustand": "^4.0.0-rc.1",
-    "axios": "^0.19.2"
+    "zustand": "^4.0.0-rc.1"
   },
   "scripts": {
     "start": "react-scripts start",
