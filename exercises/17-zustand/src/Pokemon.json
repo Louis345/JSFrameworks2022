@@ -69,21 +69,21 @@
     {
       "name": "caterpie",
       "url": "https://pokeapi.co/api/v2/pokemon/10/",
-      "image": "https://img.pokemondb.net/artwork/blastoise.jpg",
+      "image": "https://img.pokemondb.net/artwork/caterpie.jpg",
       "isFavorite": false,
       "id": 10
     },
     {
       "name": "metapod",
       "url": "https://pokeapi.co/api/v2/pokemon/11/",
-      "image": "https://img.pokemondb.net/artwork/blastoise.jpg",
+      "image": "https://img.pokemondb.net/artwork/metapod.jpg",
       "isFavorite": false,
       "id": 9
     },
     {
       "name": "butterfree",
       "url": "https://pokeapi.co/api/v2/pokemon/12/",
-      "image": "https://img.pokemondb.net/artwork/blastoise.jpg",
+      "image": "https://img.pokemondb.net/artwork/butterfree.jpg",
       "isFavorite": false,
       "id": 10
     },
