@@ -12,4 +12,3 @@ export default function Welcome({name, age}:user) {
     </p>
   )
 }
-
