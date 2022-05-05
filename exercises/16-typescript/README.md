@@ -8,7 +8,8 @@ TypeScript is a very marketable skill for those of you who are job searching. It
 
 ## Examples and Documentation
 
-- [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
+- [React + Typescript Cheatsheets](https://github.com/typescript-cheatsheets/react)
+- [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup) (a different cheatsheet)
 - TypeScript and React: [Components](https://fettblog.eu/typescript-react/components/) | [Hooks](https://fettblog.eu/typescript-react/hooks/) | [Events](https://fettblog.eu/typescript-react/events/) | [ErrorBoundaries](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/error_boundaries)
 - [TutorialsTeacher](https://www.tutorialsteacher.com/typescript)
 
