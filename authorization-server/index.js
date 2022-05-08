@@ -45,6 +45,7 @@ const PASSWORD = "password";
 
 const fakeUsers = require("./fakeUsers.json");
 const movies = require("./movies.json");
+const googleFonts = require("./googleFonts.json");
 
 // Normally, we would store this in a database session
 let uuid;
@@ -178,12 +179,20 @@ app
   })
   .all(methodNotAllowedError);
 
+app.route("/api/fonts").get((req, res) => {
+  return res.send(googleFonts);
+});
+
 app
   .route(["/api/users", "/api/movies"])
   .get((req, res) => {
     const invalidResponse = validateJwt(req, res);
     if (invalidResponse) return invalidResponse;
-    const content = req.originalUrl === "/api/movies" ? movies : fakeUsers;
+    const paths = {
+      "/api/users": fakeUsers,
+      "/api/movies": movies,
+    };
+    const content = paths[req.originalUrl];
     return res.send(content);
   })
   .all(methodNotAllowedError);
