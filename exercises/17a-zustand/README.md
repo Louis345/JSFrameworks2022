@@ -1,4 +1,4 @@
-# Zustand Pokemon Challenge
+# Zustand Challenge
 
 In Visual Studio code, press `command+shift+v` (Mac) or `ctrl+shift+v` (Windows) to open a Markdown preview.
 
