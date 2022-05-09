@@ -1,4 +1,4 @@
-# Effects Challenge 1 - AJAX Request On Mount
+# Zustand Challenge 17b
 
 In Visual Studio code, press `command+shift+v` (Mac) or `ctrl+shift+v` (Windows) to open a Markdown preview.
 
@@ -25,6 +25,6 @@ As a user, I want to see feedback if the quote is loading or if there is an erro
 
 Before doing this exercise, read the documentation for the [Ron Swanson Quotes API](https://github.com/jamesseanwright/ron-swanson-quotes).
 
-If you would like to use the Axios library, install it with `npm install axios`. (`create-react-app`. Install zustand `npm install zustand --save` doesn't come with the Axios library and the zustand the statement, so you will need to install it separately.) Alternatively, you can use the browser native Fetch API.
+If you would like to use the Axios library, install it with `npm install axios`. (`create-react-app`. You will also need to install zustand `npm install zustand --save` to complete this exercise.)
 
 Complete the instructions in [App.jsx](src/App.jsx).
