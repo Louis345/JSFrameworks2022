@@ -66,7 +66,7 @@ The application is fully function right now. the list of Pokemon is stored as st
 
 Before you begin, you will need to install Zustand. Run `npm install zustand`.
 
-Create a file called _src/createStore.js_. You will need to setup the here first. The list of Pokemon needs to be stored in the global store.
+Create a file called _src/useStore.js_. You will need to setup the here first. The list of Pokemon needs to be stored in the global store.
 
 Update _src/App.jsx_ so that it gets all Pokemon from the store. The functions in this file like `handleOnSearch` and `handleOnPokemonClick` should update the state of Pokemon in the global store instead of local state with `<App />`.
 
