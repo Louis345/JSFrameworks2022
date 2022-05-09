@@ -13,7 +13,7 @@ For this assignment, we will be using the following testing libraries:
 - Jest to run the tests, which is [built into create-react-app](https://create-react-app.dev/docs/running-tests/).
 - React Testing Library and to render React components and query what is on the screen. See the [cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet) and [full example](https://testing-library.com/docs/react-testing-library/example-intro).
 - Testing Library [queries](https://testing-library.com/docs/queries/about) and [asynchronous queries](https://testing-library.com/docs/dom-testing-library/api-async) to assert that React elements have rendered onto the page.
-- [Jest](https://jestjs.io/docs/expect) and [jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) for other assertions.
+- [Jest](https://jestjs.io/docs/using-matchers) and [jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) for other assertions.
 - Testing Library to trigger [user events](https://testing-library.com/docs/dom-testing-library/api-events).
 
 ## Getting Started
@@ -21,7 +21,7 @@ For this assignment, we will be using the following testing libraries:
 Using your command line, you will need to navigate to the this folder, install all dependencies.
 
 ```shell
-cd exercises/17-automated-testing/
+cd exercises/18-automated-testing/
 code . # if you would like to open this in a separate VSCode window
 npm install
 ```
@@ -38,7 +38,7 @@ If, at any time, you need to quit the tests, press `ctrl + c`.
 
 ## User Stories
 
-Note that for this assignment, you will not be working on the UI - you will we writing the tests for the UI instead. However, we are including these unit tests to give you context on the application that you are testing. You can, of course, run `npm start` to demo what this application is doing.
+Note that for this assignment, you will not be working on the UI - you will we writing the tests for the functions and UI instead. However, we are including these unit tests to give you context on the application that you are testing. You can, of course, run `npm start` to demo what this application is doing.
 
 ![Example of what you will see when you start the app](automated-testing.gif)
 
@@ -49,6 +49,8 @@ As a user, I would like to add a new link to my list of links.
 As a user, I would like to hide my list of links.
 
 ## Instructions
+
+Open the file _src/utils/someRandomFunctions.test.js_ and follow the instructions.
 
 Open the file _src/components/App/App.test.js_ and follow the instructions.
 
