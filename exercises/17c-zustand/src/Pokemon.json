@@ -1,0 +1,133 @@
+{
+  "count": 1126,
+  "next": "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
+  "previous": null,
+  "results": [
+    {
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "image": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+      "isFavorite": false,
+      "id": 0
+    },
+    {
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "image": "https://img.pokemondb.net/artwork/ivysaur.jpg",
+      "isFavorite": false,
+      "id": 1
+    },
+    {
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "image": "https://img.pokemondb.net/artwork/venusaur.jpg",
+      "isFavorite": false,
+      "id": 2
+    },
+    {
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon/4/",
+      "image": "https://img.pokemondb.net/artwork/charmander.jpg",
+      "isFavorite": false,
+      "id": 3
+    },
+    {
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "image": "https://img.pokemondb.net/artwork/charmeleon.jpg",
+      "isFavorite": false,
+      "id": 4
+    },
+    {
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "image": "https://img.pokemondb.net/artwork/charizard.jpg",
+      "isFavorite": false,
+      "id": 5
+    },
+    {
+      "name": "squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon/7/",
+      "image": "https://img.pokemondb.net/artwork/squirtle.jpg",
+      "isFavorite": false,
+      "id": 6
+    },
+    {
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8/",
+      "image": "https://img.pokemondb.net/artwork/wartortle.jpg",
+      "isFavorite": false,
+      "id": 7
+    },
+    {
+      "name": "blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon/9/",
+      "image": "https://img.pokemondb.net/artwork/blastoise.jpg",
+      "isFavorite": false,
+      "id": 8
+    },
+    {
+      "name": "caterpie",
+      "url": "https://pokeapi.co/api/v2/pokemon/10/",
+      "image": "https://img.pokemondb.net/artwork/caterpie.jpg",
+      "isFavorite": false,
+      "id": 10
+    },
+    {
+      "name": "metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon/11/",
+      "image": "https://img.pokemondb.net/artwork/metapod.jpg",
+      "isFavorite": false,
+      "id": 9
+    },
+    {
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "image": "https://img.pokemondb.net/artwork/butterfree.jpg",
+      "isFavorite": false,
+      "id": 10
+    },
+    {
+      "name": "weedle",
+      "url": "https://pokeapi.co/api/v2/pokemon/13/",
+      "image": "https://img.pokemondb.net/artwork/weedle.jpg",
+      "isFavorite": false,
+      "id": 11
+    },
+    {
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon/14/",
+      "image": "https://img.pokemondb.net/artwork/kakuna.jpg",
+      "isFavorite": false,
+      "id": 12
+    },
+    {
+      "name": "beedrill",
+      "url": "https://pokeapi.co/api/v2/pokemon/15/",
+      "image": "https://img.pokemondb.net/artwork/beedrill.jpg",
+      "isFavorite": false,
+      "id": 13
+    },
+    {
+      "name": "pidgey",
+      "url": "https://pokeapi.co/api/v2/pokemon/16/",
+      "image": "https://img.pokemondb.net/artwork/pidgey.jpg",
+      "isFavorite": false,
+      "id": 14
+    },
+    {
+      "name": "pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon/17/",
+      "image": "https://img.pokemondb.net/artwork/pidgeotto.jpg",
+      "isFavorite": false,
+      "id": 15
+    },
+    {
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "image": "https://img.pokemondb.net/artwork/pidgeot.jpg",
+      "isFavorite": false,
+      "id": 16
+    }
+  ]
+}
