@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { useStore } from "./store";
 
 function App() {
-  const { quote, fetch } = useStore((state) => state);
+
+  const {ronSwansonQuote,  fetch } = useStore((state) => state);
 
   useEffect(() => {
     fetch("http://ron-swanson-quotes.herokuapp.com/v2/quotes");
@@ -18,7 +19,7 @@ function App() {
           id="quote"
           class="blockquote bg-dark text-white border-0 mb-4"
         >
-          {quote}
+          {ronSwansonQuote}
         </blockquote>
       </div>
     </body>
