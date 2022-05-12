@@ -9,16 +9,16 @@ interface pokemonState {
     isFavorite: boolean;
     id: number;
   }[];
-  setPokemon: () => void;
+  setPokemon: (filterPokemons: []) => void;
   search: string;
   setSearch: (text: string) => void;
 }
 
 export const pokemonStore = create<pokemonState>((set) => ({
   pokemons: PokemonJSON.results,
-  setPokemon: () =>
+  setPokemon: (filterPokemons: []) =>
     set((state) => ({
-      pokemons: [...state.pokemons],
+      pokemons: [ ...filterPokemons],
     })),
   search: "",
   setSearch: (text: string) =>

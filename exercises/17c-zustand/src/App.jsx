@@ -17,7 +17,7 @@ function App() {
       handleOnSearch(search);
     }
     if (!search) {
-      setPokemon();
+      setPokemon(pokemons);
     }
   }, [search]);
 
