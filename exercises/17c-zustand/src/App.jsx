@@ -1,37 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Card from "./components/Card/Card";
 import Header from "./Layouts/Header/Header";
-import PokemonJSON from "./Pokemon"; // Move me to the store
 import styles from "./App.module.css";
+import { pokemonStore } from "./useStore";
 
 function App() {
-  /**
-   * Instead of local state, we should be getting the Pokemon from the Zustand store
-   */
-  const [pokemons, setPokemon] = useState([]);
-  /**
-   * Instead of setting "isFavorite" here, we will need to edit the Pokemon in the Zustand store.
-   */
+  const { pokemons, setPokemon, search, setSearch } = pokemonStore(
+    (state) => state
+  );
+  console.log(search);
+
   const [isFavorite, setIsFavorite] = useState(false);
-
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    setPokemon(PokemonJSON.results);
-  }, []);
 
   useEffect(() => {
     if (search) {
       handleOnSearch(search);
     }
     if (!search) {
-      setPokemon(PokemonJSON.results);
+      setPokemon();
     }
   }, [search]);
 
-  /**
-   * This should get the list of Pokemon from the Zustand store
-   */
   const renderAllPokemon = () => {
     return (
       <div className={styles.container} id="container">
@@ -53,9 +42,6 @@ function App() {
     );
   };
 
-  /**
-   * This should get the list of Pokemon from the Zustand store
-   */
   const handleOnSearch = (search) => {
     const filteredPokemons = pokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(search.toLowerCase())
@@ -63,9 +49,6 @@ function App() {
     setPokemon(filteredPokemons);
   };
 
-  /**
-   * This should edit the list of Pokemon from the Zustand store
-   */
   const handleOnPokemonClick = (id) => {
     const newPokemon = pokemons.map((pokemon) => {
       if (pokemon.id === id) {
@@ -76,9 +59,6 @@ function App() {
     setPokemon(newPokemon);
   };
 
-  /**
-   * This should edit the list of Pokemon from the Zustand store
-   */
   const renderFavoritePokemon = () => {
     return (
       <div className={styles.container} id="container">
