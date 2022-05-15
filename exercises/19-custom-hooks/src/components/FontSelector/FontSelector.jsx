@@ -47,7 +47,8 @@ function FontSelector() {
       setIsLoading(false);
     } catch (err) {
       console.error(err);
-      setHasError(false);
+      setHasError(true);
+      setIsLoading(false);
     }
   };
 
