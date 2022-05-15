@@ -192,15 +192,15 @@ As a part of this project, you will be making AJAX requests to the back-end book
 
 The API is a REST based API that will return JSON data. Here is an overview of the API end-points. You will need to plugin the _bookId_, _shelfKey_ and _bookTitle_ into the URL.
 
-| Action                                | Method | URL                                | Need JWT? |
-| ------------------------------------- | :----: | ---------------------------------- | --------- |
-| Signin and get a JWT token            |  POST  | /api/signin                        | No        |
-| Get a list of books in a bookshelf    |  GET   | /api/bookshelf                     | Yes       |
-| Add a book to the bookshelf           |  PUT   | /api/bookshelf/_bookId_/_shelfKey_ | Yes       |
-| Remove a book from the bookshelf      | DELETE | /api/bookshelf/_bookId_            | Yes       |
-| Move a book from one shelf to another |  PUT   | /api/bookshelf/_bookId_/_shelfKey_ | Yes       |
-| View details on a single book         |  GET   | /api/book/_bookId_                 | Yes       |
-| Search for books                      |  GET   | /api/book/search/_bookTitle_       | Yes       |
+| Action                                | Method | URL                                | Need JWT?   |
+| ------------------------------------- | :----: | ---------------------------------- | ----------- |
+| Signin and get a JWT token            |  POST  | /api/signin                        | No          |
+| Get a list of books in a bookshelf    |  GET   | /api/bookshelf                     | Yes         |
+| Add a book to the bookshelf           |  PUT   | /api/bookshelf/_bookId_/_shelfKey_ | Yes         |
+| Remove a book from the bookshelf      | DELETE | /api/bookshelf/_bookId_            | Yes         |
+| Move a book from one shelf to another |  PUT   | /api/bookshelf/_bookId_/_shelfKey_ | Yes         |
+| View details on a single book         |  GET   | /api/book/_bookId_                 | Recommended |
+| Search for books                      |  GET   | /api/book/search/_bookTitle_       | No          |
 
 #### Signin
 
@@ -240,7 +240,7 @@ If they are not correct, you will get a response like this below. The server wil
 
 **One thing to note about the tokens is that they will be different each time you restart the back-end server. This means you will need to signin and get a new JWT token every time you restart.**
 
-In every other AJAX request, you must include the JWT token you received in the _Authorization_ header. Here is an example with Axios:
+In many of the other APIs, you are required to included the JWT token you received in the _Authorization_ header. Here is an example with Axios:
 
 ```javascript
 // You should not hardcode this
@@ -334,6 +334,8 @@ Here is an example response:
 }
 ```
 
+Although you are not required, you should send the JWT access token. Without it, the shelf will be omitted from the response.
+
 #### Search for Books
 
 You will need to make a GET request.
@@ -349,9 +351,8 @@ Here is an example of a response:
   "books": [
     {
       "id": "0ETIjwEACAAJ",
-      "title": "The Fisherman",
+      "title": "The Fisherman"
       // Additional information
-      "shelf": "none"
     },
     {
       /* Book # 2 */
