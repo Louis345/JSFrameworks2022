@@ -1,6 +1,6 @@
 # Project 2: Book Store (Final Project)
 
-**Due June 6, 2021 End of Day**
+**Due June 6, 2022 End of Day**
 
 For your second project, you will be creating a book store web application, similar to Barnes & Noble and Amazon. Users who visit your book store signin, search for books, select books and view detailed book information. They can also save books to three different lists or “shelves”:
 
@@ -18,27 +18,27 @@ Together, these shelves will make up their “bookshelf”. You will include fun
 
 This project will put together these topics that were covered in class:
 
-- Global state management with the Context API (or alternatively, Redux)
-- AJAX and the `useEffect` (or lifecycle) hooks
+- Share global state with the Context API or Zustand
+- AJAX with the `useEffect` hook or other `<Suspense />`
 - Routing
 - Authentication
 
 ## Getting Started
 
-Copy the entire folder _projects/book-store/book-store-app_ and paste it somewhere that you will remember (e.g. ~/Documents). Open the folder in Visual Studio Code. Open your terminal and install the server.
+Fork the repo [JSFrameworks2022FinalProject](https://github.com/AlbanyCanCodeCourses/JSFrameworks2022FinalProject.git) and clone your forked version in someplace that you will remember it (e.g. _~/Documents_). Open the folder in Visual Studio Code. Open your terminal and install the server.
 
 ```
-yarn install
+npm install
 ```
 
-To start the server, run `yarn start`. You should see this:
+To start the server, run `npm run start`. You should see this:
 
 ```
 Your server is running on http://localhost:3001/
 Press ctrl+c to stop
 ```
 
-If you open _http://localhost:3001/_ in your browser or Postman, you should see a message like this:
+If you open _http://localhost:3001/_ in your browser, Thunder Client or Postman, you should see a message like this:
 
 ```
 Its running! To use the API, please refer to the Project README.md.
@@ -50,11 +50,19 @@ Next, open up a new terminal. (You can either use split screen, or press the plu
 npx create-react-app client
 ```
 
+You will first want to remove git from the _client_ folder, because you will need to commit the server to git too. You should only have one git repo for the entire project.
+
+```
+cd client
+rm -rf .git
+rm .gitignore # Recommended because we already have this at the root level
+```
+
 To avoid CORS issues, we are going to proxy the server. (What this essentially means is that instead of sending AJAX requests to e.g. _http://localhost:3001/api/signin_, you would send it to _/api/signin_. This will make it easier for those of you who want to host your project on a site like Heroku.) Open up the _client/package.json_ file and add this:
 
 ```json
 {
-  "name": "book-store-client",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   // ...
@@ -62,43 +70,11 @@ To avoid CORS issues, we are going to proxy the server. (What this essentially m
 }
 ```
 
-Now you should ready to go. To start the React app:
-
-```
-cd client
-yarn start
-```
-
-### Setting Up Git
-
-You will first want to remove git from the _client_ folder, because you will need to commit the server to git too. You should only have one git repo for the entire project.
-
-```
-cd client
-rm -rf .git
-```
-
-Now, initialize git for the entire project.
-
-```
-cd ../
-git init
-```
-
-Create a _.gitignore_ file. At the very least, it should ignore _node_modules_ and _build_. ([You can can use the .gitingore here and add _build_ to it.](https://www.toptal.com/developers/gitignore/api/node,react,macos,windows,visualstudiocode))
-
-Now, commit everything:
-
-```
-git add .
-git commit -m "Initial commit"
-```
-
-Follow the instructions in Github docs on ["Adding an existing project to GitHub using the command line"](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line) to host your repo on Github.
+Now you should ready to go. Start the app with `npm start`.
 
 ### Heroku
 
-If you would like to host your project on Heraku, see ["How to Create a React App with a Node Backend: The Complete Guide"](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/). We will be going over this in class. This is optional.
+You will need to host your final project for graduation. We recommend Heroku. If you would like to host your project on Heraku, see ["How to Create a React App with a Node Backend: The Complete Guide"](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/). We will be going over this in class.
 
 ## Project Requirements
 
@@ -110,6 +86,7 @@ Your book store must meet all the following application setup, UI and coding req
 - Your application should be easy to install and start. **IF WE CANNOT INSTALL OR START YOUR APPLICATION, IT IS AN AUTOMATIC FAILURE.**
 - Your application should not crash at any point.
 - You should include a _README.md_ file within the root of the git repository. The _README.md_ should have clear instructions on how to install and start the project.
+- You must have a demo of your project hosted somewhere that is publicly accessible.
 
 Note that we will go over setting up the project in class.
 
@@ -123,6 +100,8 @@ Your project should have four screens:
 4. Bookshelf
 
 #### Signin Screen
+
+Note that you will not being using Okta for your assignment. You will be writing your own signin form.
 
 - Users should be able to signin with a username and password.
 - If a user enters the wrong credentials, display a message telling the user that their credentials are not correct.
@@ -164,7 +143,7 @@ Routing is a system for resource navigation. When a user clicks on a link, they 
 
 - The application should have the following paths:
 
-| Screen       | Must Be Logged In | Route              | Footnotes                                       |
+| Screen       | Must Be Logged In | Route              | Notes                                           |
 | ------------ | ----------------- | ------------------ | ----------------------------------------------- |
 | Signin       | No                | /                  |                                                 |
 | Search       | Yes               | /search            |                                                 |
@@ -188,22 +167,22 @@ Routing is a system for resource navigation. When a user clicks on a link, they 
 
 ### Coding Requirements
 
-- This application should contain at least four React components. Each of the four screens outlined earlier should be a separate, high-level React Component. (You can choose to use hooks, extend the React Component class, or mix and match. It is up to you.)
-- You must use the React Router library.
+- This application should contain at least four React components. Each of the four screens outlined earlier should be a separate, high-level React Component.
+- You must use the React Router library. (If you use React Router v5, do not write your application in strict mode. Please see the _Tips_ section below for more information.)
 - You must have a signin form and authenticate users.
 - You must have protected routes (routes that the user must be logged in to see).
-- You must use the Context API (recommended) or Redux to store state that is shared universally between most components.
-- For components that are functions, you should handle AJAX calls using a style that we learned about in class. (`useEffect()` hook. lifecycle hooks if class, or [React Query](https://react-query.tanstack.com/))
+- You must use a system to store state that is shared universally between most components that was taught in class. This means you must use either the Context API or Zustand.
+- For components that are functions, you should handle AJAX calls using styles that we covered in class. (`useEffect()` hook, a custom asynchronous hook, `<Suspense />`, or [SWR](https://swr.vercel.app/)). You can mix different styles together.
 - AJAX errors should be caught.
 - Styling must be included, but you will not be graded on how visually appealing your application is or how well your CSS is written.
 
 ## Styling Your Project
 
-We do not have example HTML or CSS for this project. We suggest that you use a CSS framework like [Bootstrap](https://getbootstrap.com/), [Foundation](https://get.foundation/sites.html) or [UIKit](https://getuikit.com/). Here are a few different ways to include styling:
+We do not have example HTML or CSS for this project. We suggest that you use a CSS framework like [Bootstrap](https://getbootstrap.com/), [Material UI](https://mui.com/) or [Tail Wind](https://tailwindcss.com/). Here are a few different ways to include styling:
 
 - Add a CDN link to the _index.html_ file of your project.
-- Install a CSS library with yarn. Import the library's entry CSS file in your _index.js_ file.
-- Install an NPM library like [Reactstrap](https://reactstrap.github.io/) with yarn. Follow the library's documentation and import the components from the library where needed.
+- Install a CSS library with npm. Import the library's entry CSS file in your _index.js_ file.
+- Install an NPM library like [Material UI](https://mui.com/) or [Reactstrap](https://reactstrap.github.io/) with npm. Follow the library's documentation and import the components from the library where needed.
 
 ## Back-End Book Store Server And API
 
@@ -222,8 +201,6 @@ The API is a REST based API that will return JSON data. Here is an overview of t
 | Move a book from one shelf to another |  PUT   | /api/bookshelf/_bookId_/_shelfKey_ | Yes       |
 | View details on a single book         |  GET   | /api/book/_bookId_                 | Yes       |
 | Search for books                      |  GET   | /api/book/search/_bookTitle_       | Yes       |
-| Get a new JWT token                   |  GET   | /api/refresh                       | No        |
-| Sign out                              | DELETE | /api/signout                       | Yes       |
 
 #### Signin
 
@@ -253,7 +230,7 @@ POST a request the URL _/api/signin_. If the username and password is correct, y
 }
 ```
 
-If they are not correct, you will get a response like this below. The server will return a 401 Unauthorized error and, if you are using Axios, you must handle it within the catch block.
+If they are not correct, you will get a response like this below. The server will return a _401 Unauthorized_ error and, if you are using Axios, you must handle it within the catch block.
 
 ```json
 {
@@ -279,12 +256,12 @@ axios("/api/bookshelf", {
 });
 ```
 
-See the AJAX requests in [Example 12a](../../examples/12a-authentication-quick-dirty) and [Example 12b](../../examples/12b-authentication-routing) for an example of authentication with JWT tokens.
+See the AJAX requests in your [auth assignment](../../exercises/14-auth) and the [final project example](../../examples/final-project) for an example of authentication with JWT tokens.
 
 #### Get a List of Books in a User's Bookshelf
 
 To lookup books in a user’s bookshelf, you will make a GET request to
-_/api/bookshelf_. A token must be in the request, or you will get a 401 Unauthorized error.
+_/api/bookshelf_. A token must be in the request, or you will get a _401 Unauthorized_ error.
 
 Here is an example of a success response:
 
@@ -316,7 +293,7 @@ In order to add a book to a bookshelf, you need both the book ID and shelf key. 
 This is a PUT request. You will need to plug in both the book ID and shelf key into the URL. For example, if I had a book with the ID _dgYvDwAAQBAJ_ and I wanted to add it to my “Currently Reading” bookshelf, I would send the request to: \
 _/api/bookshelf/dgYvDwAAQBAJ/currentlyReading_
 
-A token must be in the request, or you will get a 401 Unauthorized.
+A token must be in the request, or you will get a _401 Unauthorized_.
 
 The response will be the same as getting all books in a bookshelf.
 
@@ -325,7 +302,7 @@ The response will be the same as getting all books in a bookshelf.
 You will need to send a DELETE request with the _bookId_ in the URL. For example, if I'm removing a book with the ID _dgYvDwAAQBAJ_ from my bookshelf, I would send a DELETE request to: \
 _/api/bookshelf/dgYvDwAAQBAJ_
 
-A token must be in the request, or you will get a 401 Unauthorized.
+A token must be in the request, or you will get a _401 Unauthorized_.
 
 The response will be the same as getting all books in a bookshelf.
 
@@ -334,7 +311,7 @@ The response will be the same as getting all books in a bookshelf.
 An example of when you would make this request is when a user wants to move a book from the “Currently Reading” to the “Read” category. In order to do this, you will need both the book ID and the new desired book shelf. If my book ID is _dgYvDwAAQBAJ_, and I want to move it to the "Read" shelf, I would send a PUT request to: \
 _/api/bookshelf/dgYvDwAAQBAJ/read_
 
-A token must be in the request, or you will get a 401 Unauthorized.
+A token must be in the request, or you will get a _401 Unauthorized_.
 
 The response will be the same as getting books in a bookshelf.
 
@@ -410,23 +387,40 @@ Create diagrams of each component, what it puts in state, what is shared in the 
 
 A good place to start is with routing. Create a bunch of components that say, at first, "Hello World". Link the components to each other where needed.
 
+There is [an issue with React Router v5 and React v18](https://github.com/facebook/react/issues/21674). If you use React Router v5, do not write your application in strict mode. Open the _src/index.js_ file, and remove the following lines:
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  {/* Remove `<React.StrictMode>` below */}
+  <React.StrictMode>
+    <App />
+  {/* Remove `</React.StrictMode>` below */}
+  </React.StrictMode>
+);
+```
+
 Use React Router's `<Link>` tag to navigate to new components.
 
-You can copy and paste a lot of your code from the [12b Authentication and Routing exercise](../../exercises/12b-authentication) into this project.
+You can copy a lot of your code from the [final project example](../../examples/final-project) into this project.
 
-In most places, it is recommended that you store data and other state in React component's local state. The Context API or Redux should really only be used for state that is shared between most components.
+In most places, it is recommended that you store data and other state in React component's local state. The Context API or Zustand should really only be used for state that is shared between most components.
 
-The book IDs will drive most of your application. You will receive books IDs in your response when you make an AJAX request to search for a book, open the bookshelf or modify a bookshelf. You should place book IDs into `<Link>` paths to new screens (see how we linked to the movie details page in the [React Router example](https://codesandbox.io/s/react-router-v52-l8w48?file=/src/components/App/App.jsx). You will also need to carry the books IDs from one AJAX request to another when a user modifies their bookshelf or views details on a single book.
+The book IDs will drive most of your application. You will receive books IDs in your response when you make an AJAX request to search for a book, open the bookshelf or modify a bookshelf. You should place book IDs into `<Link>` paths to new screens (see how we linked to the movie details page in the [React Router example](https://codesandbox.io/s/react-router-v5-with-react-18-1c116m?file=/src/components/App/App.jsx). You will also need to carry the books IDs from one AJAX request to another when a user modifies their bookshelf or views details on a single book.
 
-You may find it helpful to use [Postman](https://www.postman.com/) to test our your AJAX requests before building them into React.
-
-When making AJAX requests, try to log your response (`console.log`) at first so that you can figure out which part of the response contains the data that you need. Alternatively, you view AJAX requests within the "Network" tab of your browser's DevTools.
-
-Try to make your components stateless. For example, say the user is on the _Search_ screen and she is searching for _gardening_. She user thens clicks on a book called _The Art of Gardening_ and is taken to the _Book Details_ page. Now, you may decide to carry over the details like title and author from the search results to the _Book Details_ screen. However, I recommend that you simply make an AJAX request within the Book Details component to look up the information you need instead of relying on the data from the search results. Here is why:
+Try to make your components stateless. For example, say the user is on the _Search_ screen and she is searching for _gardening_. She thens clicks on a book called _The Art of Gardening_ and is taken to the _Book Details_ page. Now, you may decide to carry over the details like title and author from the search results to the _Book Details_ screen. However, I recommend that you simply make an AJAX request within the Book Details component to look up the information you need instead of relying on the data from the search results. Here is why:
 
 1. You will need to make an AJAX request on the _Book Details_ screen anyways. If the user refreshes the page, the component will lose its state.
 2. Carrying over state from one component to the next is difficult.
 3. If your components are stateless, then your code is reusable.
+
+You may find it helpful to use Visual Studio Code's Thunder Client extension or the standalone [Postman application](https://www.postman.com/) to test our your AJAX requests before building them into React.
+
+When making AJAX requests, try to log your response (`console.log`) at first so that you can figure out which part of the response contains the data that you need. Alternatively, you view AJAX requests within the "Network" tab of your browser's DevTools.
 
 Talk to your instructors and talk to them earlier on. They can guide you on designing the architecture and overflow flow of your application so that you are not stuck the night before the project is due.
 
@@ -434,22 +428,26 @@ Talk to your instructors and talk to them earlier on. They can guide you on desi
 
 While your grade is not determined on whether or not you follow these code quality tips, we encourage you to code to a professional standard. One of the goals of this project is to help you build a portfolio. Just like an interviewer will judge you on your attire, employers will judge you on the neatness of your code.
 
-- Your _README.md_ should be written in Markdown. It should also describe your project, explain the purpose of the project, give instructions on how to install and start both your project and the server and credit yourself as the author. Here are some resources on creating _README.md_ files:
+- You should have README.md written in Markdown. It should explain the purpose of the project, give instructions on how to install and start your project and credit yourself as the author. Here are some resources on creating _README.md_ files:
   - [Make a README](https://www.makeareadme.com/)
   - [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - Add anything that should not be committed to your _.gitigore_ file. Your _node_modules_ and _build_ folder should be ignored.
 - Choose descriptive and specific names for React components, constants, functions and anything else that is named.
 - You must not leave any debugging statements in your code. Remove any `console.log()` statements from your code before committing.
 - Only have actual comments within comment tags. Do not commit code that you commented out for debugging purposes.
+- No errors should appear in the console.
 - Remove any components or code that is not being used. (This affects application load time as well as code quality.)
 - Use proper indentation. (Prettier can take care of this.)
-- There should not be any errors in the console.
 
 ## Project Submission
 
 You must create a new git repository for this project. Within your project, you will need to include a _package.json_ and _README.md_ file in the project root directory. All files must be included to install, build, and run your application. You are limited to Node.js packages. Instructions on how to install or start your application must be written in the _README.md_. While not required to do so, we suggest you write your _README.md_ in Markdown.
 
-Before the project is due, you must share a link to your GitHub repository to both on the instructors in Slack.
+Before the project is due, you must share a link to your GitHub repository and your hosted demo to both of your instructors in Slack.
+
+## Graduation and Project Showcase
+
+There will be a virtual graduation and networking ceremony. You will receive an email from CanCode Communities with more information about this as we get closer to the date. You will be ask present your project, so it should be ready to share by the project due date. CanCode Communities will also need the URL of the demo of your project to share with employers.
 
 ## Project Help
 
