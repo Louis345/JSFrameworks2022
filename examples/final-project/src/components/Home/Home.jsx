@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useCallback } from "react";
 import { AccessTokenContext } from "../../contexts/AccessTokenContext";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ function Home() {
    */
   const { getToken, logout } = useContext(AccessTokenContext);
 
-  const getUsers = async () => {
+  const getUsers = useCallback(async () => {
     try {
       const response = await axios.request({
         method: "GET",
@@ -30,11 +30,11 @@ function Home() {
        */
       setErrorMessage("Oh no! An unexpected error occurred.");
     }
-  };
+  }, [getToken]);
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [getUsers]);
 
   return (
     <div className="container mt-2 mb-5">

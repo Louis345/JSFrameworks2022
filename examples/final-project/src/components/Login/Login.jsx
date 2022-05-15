@@ -33,10 +33,10 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        data: JSON.stringify({
+        data: {
           username,
           password,
-        }),
+        },
       })
       .then((response) => {
         /**

@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import axios from "axios";
 
 export const AccessTokenContext = createContext();
 
@@ -30,27 +29,10 @@ export function AccessTokenProvider({ children }) {
     setToken(token);
   };
   /**
-   * Logs the user out by sending a request to the server
-   * and deleting the token.
+   * Logs the user out by clearing the token from state
    */
   const logout = () => {
-    return axios
-      .request({
-        method: "DELETE",
-        url: "/api/logout",
-        headers: {
-          Authorization: `Bearer ${getToken()}`,
-        },
-      })
-      .catch((error) => console.error(error))
-      .then(() => {
-        /**
-         * We logout on the client by deleting the token
-         * and we reset the expiry to stop the countdown
-         * to get a refresh token.
-         */
-        setToken("");
-      });
+    setToken("");
   };
 
   return (
