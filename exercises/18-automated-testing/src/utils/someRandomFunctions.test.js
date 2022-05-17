@@ -20,46 +20,47 @@ describe("Unit Testing", () => {
     });
   });
 
-  /**
-   * Write a unit test for `subtract` here.
-   * @see https://jestjs.io/docs/using-matchers
-   */
+  describe("subtract", () => {
+    test("should subtract two numbers", () => {
+      const sum = subtract(4, 2);
+      expect(sum).toBe(2);
+    });
+  });
 
-  /**
-   * Write two tests for `isEvenNumber` here:
-   * - The first should test if `isEvenNumber` returns true for even numbers
-   * - The second should test if `isEvenNumber` returns false for odd numbers
-   * @see https://jestjs.io/docs/using-matchers
-   */
+  describe("isEvenNumber", () => {
+    test("should check if number is even", () => {
+      const num = isEvenNumber(4);
+      expect(num).toBe(true);
+    });
+  });
+
+  describe("isEvenOdd", () => {
+    test("should check if number is odd", () => {
+      const num = isEvenNumber(5);
+      expect(num).toBe(false);
+    });
+  });
 
   describe("findAdults", () => {
-    // Remove the `.skip` when you are ready to write this test
-    test.skip("will find, in a multidimensional array, all the people older than 18", () => {
-      /**
-       * Complete the unit test for `findAdults` here.
-       * Hint: You should not use `.toBe()` for this
-       * @see https://jestjs.io/docs/using-matchers
-       * @see https://jestjs.io/docs/expect
-       */
+    test("will find, in a multidimensional array, all the people older than 18", () => {
       const people = [
         { name: "Janet", age: 43 },
         { name: "Aiden", age: 10 },
         { name: "Chloe", age: 16 },
       ];
+
+      const findOldPeople = findAdults(people);
+      expect(findOldPeople).toEqual([{ name: "Janet", age: 43 }]);
     });
 
-    // Remove the `.skip` when you are ready to write this test
-    test.skip("will return an empty array if no adults are found", () => {
-      /**
-       * Complete the unit test for `findAdults` here, where you use a different assertion than `.toBe()`
-       * @see https://jestjs.io/docs/using-matchers
-       * @see https://jestjs.io/docs/expect
-       */
+    test("will return an empty array if no adults are found", () => {
       const people = [
         { name: "Liam", age: 3 },
         { name: "Emma", age: 17 },
         { name: "Ethan", age: 8 },
       ];
+      const findYoungPeople = findAdults(people);
+      expect(findYoungPeople).toEqual([]);
     });
   });
 });

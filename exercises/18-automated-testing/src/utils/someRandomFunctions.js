@@ -43,3 +43,11 @@ export const findAdults = (people) => {
     return person.age >= 18;
   });
 };
+
+export const upperCaseLetter = (letter) => {
+  if (letter.length !== 1 || letter.match(/[^a-z]/i)) {
+    throw new Error("NOT A LETTER")
+  } else {
+    return letter.toUpperCase()
+  }
+}
