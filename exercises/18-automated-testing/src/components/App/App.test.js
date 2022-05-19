@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import App from "./App";
 
 // Example 1
@@ -46,11 +46,21 @@ it('should include a textbox called "Link" and the user can type in this textbox
  * @see https://testing-library.com/docs/queries/about
  */
 
+it("should render the header 'here are my favorite sites'", async () => {
+  render(<App />);
+  screen.getByText("Here are my favorite sites:");
+});
+
 /**
  * Write a test that checks to see if two buttons renders on the screen
  * @see https://testing-library.com/docs/dom-testing-library/cheatsheet
  * @see https://jestjs.io/docs/expect#tohavelengthnumber
  */
+it("should render two buttons on the home screen", async () => {
+  render(<App />);
+  screen.getByTestId("button-add");
+  screen.getByTestId("button-hide");
+});
 
 /**
  * Write a test to see if there a textbox called "Link Title" and test that the user can type in this textbox
@@ -58,8 +68,23 @@ it('should include a textbox called "Link" and the user can type in this textbox
  * @see https://testing-library.com/docs/dom-testing-library/api-async#findby-queries
  */
 
+it("should render a textbox called 'Link Title' that a user can type in", async () => {
+  render(<App />);
+  const textBox = screen.getByLabelText("Link Title");
+  fireEvent.change(textBox, {
+    target: { value: "Google" },
+  });
+
+  await screen.findByDisplayValue("Google");
+});
+
 // Remove the `.skip` when you are ready to write this test
-it.skip("should hide the links when the hide button is clicked", () => {
+it("should hide the links when the hide button is clicked", async () => {
+  render(<App />);
+
+  fireEvent.click(screen.getByTestId("button-hide"));
+  const links = screen.queryAllByTestId(/link-/);
+  await expect(links).toHaveLength(0);
   /**
    * Complete me.
    * @see exercises/17-automated-testing/src/components/Links/Links.jsx
@@ -73,7 +98,18 @@ it.skip("should hide the links when the hide button is clicked", () => {
 });
 
 // Remove the `.skip` when you are ready to write this test
-it.skip("should add the user input to the new link on the screen when the add button is clicked", () => {
+it("should add the user input to the new link on the screen when the add button is clicked", async () => {
+  render(<App />);
+
+  fireEvent.change(screen.getByLabelText("Link Title"), {
+    target: { value: "Google" },
+  });
+  fireEvent.change(screen.getByLabelText("Link"), {
+    target: { value: "www.Google.com" },
+  });
+  fireEvent.click(screen.getByTestId("button-add"));
+  const links = screen.queryAllByTestId(/link-/);
+  await expect(links[3]).toHaveTextContent("Google");
   /**
    * Complete me.
    * @see exercises/17-automated-testing/src/components/Links/Links.jsx

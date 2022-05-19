@@ -1,9 +1,3 @@
-/**
- * STOP! You will not modify the code that is in the file.
- * Instead, you will be writing the unit tests for this exercise
- * inside `App.test.js`
- */
-
 import { useState } from "react";
 import Links from "../Links/Links";
 
