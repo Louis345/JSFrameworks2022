@@ -432,7 +432,7 @@ While your grade is not determined on whether or not you follow these code quali
 - You should have README.md written in Markdown. It should explain the purpose of the project, give instructions on how to install and start your project and credit yourself as the author. Here are some resources on creating _README.md_ files:
   - [Make a README](https://www.makeareadme.com/)
   - [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-- Add anything that should not be committed to your _.gitigore_ file. Your _node_modules_ and _build_ folder should be ignored.
+- Add anything that should not be committed to your _.gitignore_ file. Your _node_modules_ and _client/build_ folder should be ignored.
 - Choose descriptive and specific names for React components, constants, functions and anything else that is named.
 - You must not leave any debugging statements in your code. Remove any `console.log()` statements from your code before committing.
 - Only have actual comments within comment tags. Do not commit code that you commented out for debugging purposes.
