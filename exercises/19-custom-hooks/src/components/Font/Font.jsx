@@ -1,4 +1,4 @@
-import { useStylesheet } from "../../hooks/useStylesheet";
+import { useStylesheet } from "../hooks/useStylesheet";
 
 function Font({
   fontFamily,

@@ -1,12 +1,13 @@
-import { useStylesheet } from "../../hooks/useStylesheet";
+import { useStylesheet } from "../hooks/useStylesheet";
+import { useLocal } from "../hooks/useLocal";
+import { useAsync } from "../hooks/useAsync";
 // Import things here
 
 function Preview() {
   /**
    * This is repeated in the "<FontSelector />" component, so it should be a custom hook
    */
-  const bodyFont = JSON.parse(localStorage.getItem("bodyFont")) || {};
-  const headingFont = JSON.parse(localStorage.getItem("headingFont")) || {};
+  const { bodyFont, headingFont } = useLocal();
 
   useStylesheet(bodyFont.stylesheet);
   useStylesheet(headingFont.stylesheet);

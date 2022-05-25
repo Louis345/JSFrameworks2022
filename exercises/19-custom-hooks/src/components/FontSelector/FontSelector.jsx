@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Font from "../Font/Font";
-// Import things here
+import { useLocal } from "../hooks/useLocal";
+import { useAsync } from "../hooks/useAsync";
+
+const fetcher = () =>
+  axios("http://localhost:7001/api/fonts").then(
+    (response) => response.data.fonts
+  );
 
 function FontSelector() {
-  /**
-   * This is repeated in the "<Preview />" component, so it should be a custom hook
-   */
-  const bodyFont = JSON.parse(localStorage.getItem("bodyFont")) || {};
-  const headingFont = JSON.parse(localStorage.getItem("headingFont")) || {};
-  /**
-   * This is not repeated in "<Preview />", but it would probably
-   * be a good idea to keep everything that uses localStorage together.
-   */
-  const storeFont = (type, font) =>
-    localStorage.setItem(type, JSON.stringify(font));
+  const { bodyFont, headingFont, storeFont } = useLocal();
+  const { isLoading, hasError, data } = useAsync(fetcher);
 
   const [font, setFont] = useState({});
 
@@ -26,38 +23,6 @@ function FontSelector() {
   const [text, setText] = useState(
     "Almost before we knew it, we had left the ground."
   );
-
-  /**
-   * Start of what needs to be refactored for "useAsync" hook
-   */
-  const [fonts, setFonts] = useState([]);
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
-  /**
-   * IMPORTANT!!!
-   * When you refactor this, if it stays within the "FontSelector" component,
-   * this will cause a infinite loop. Place it above the line that says
-   * @see function FontSelector() {
-   */
-  const fetcher = async () => {
-    try {
-      const res = await axios("http://localhost:7001/api/fonts");
-      setFonts(res.data.fonts);
-      setIsLoading(false);
-    } catch (err) {
-      console.error(err);
-      setHasError(true);
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetcher();
-  }, []);
-  /**
-   * End of what needs to be refactored for "useAsync" hook
-   */
 
   return (
     <>
@@ -71,7 +36,7 @@ function FontSelector() {
       </div>
       <div className="row g-2">
         {/* Depending on how you solve this challenge, you may need to change the line below */}
-        {fonts.map((font, idx) => {
+        {data && data.map((font, idx) => {
           const isBodySelected = font.id === bodyFont?.id;
           const isHeadingSelected = font.id === headingFont?.id;
           return (
