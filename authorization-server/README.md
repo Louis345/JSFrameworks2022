@@ -36,13 +36,15 @@ REACT_APP_OKTA_ISSUER="https://yourdomain/oauth2/default"
 
 The API is a REST based API. Here are the different endpoints:
 
-| Endpoint                              | Method | Authorization | Request Body          | Response                                                                                             |
-| ------------------------------------- | :----: | ------------- | --------------------- | ---------------------------------------------------------------------------------------------------- |
-| http://localhost:7001/api/login       |  POST  | n/a           | username and password | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Invalid credentials            |
-| http://localhost:7001/api/movies      |  GET   | JWT           | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT |
-| http://localhost:7001/api/okta/movies |  GET   | JWT from Okta | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT |
-| http://localhost:7001/api/logout      | DELETE | JWT           | -                     | Status 200 - Success                                                                                 |
-| http://localhost:7001/api/refresh     |  GET   | n/a           | -                     | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Usually need to login          |
+| Endpoint                              | Method | Authorization | Request Body          | Response                                                                                                   |
+| ------------------------------------- | :----: | ------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| http://localhost:7001/api/login       |  POST  | -             | username and password | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Invalid credentials                  |
+| http://localhost:7001/api/movies      |  GET   | JWT           | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT       |
+| http://localhost:7001/api/okta/movies |  GET   | JWT from Okta | -                     | Status 200 - Success - Returns a list of movies<br><br>Status 401 - Missing, invalid, or expired JWT       |
+| http://localhost:7001/api/users       |  GET   | JWT           | -                     | Status 200 - Success - Returns a list of users<br><br>Status 401 - Missing, invalid, or expired JWT        |
+| http://localhost:7001/api/fonts       |  GET   | -             | -                     | Status 200 - Success - Returns a list of Google fonts<br><br>Status 401 - Missing, invalid, or expired JWT |
+| http://localhost:7001/api/logout      | DELETE | JWT           | -                     | Status 200 - Success                                                                                       |
+| http://localhost:7001/api/refresh     |  GET   | -             | -                     | Status 200 - Success - Returns JWT and JWT expiry<br><br>Status 401 - Usually need to login                |
 
 For the login APIs, the following user account will work:
 
@@ -89,6 +91,23 @@ If the username and password is correct, you will get back the JWT token and the
 ```
 
 If the credentials are not correct, then you will receive an HTTP status of unauthorized (code 401).
+
+### Getting a list of fonts
+
+You will send a GET request to http://localhost:7001/api/fonts. This API does not require authentication. If your request is successfully, you should see a response like this:
+
+```json
+{
+  "fonts": [
+    {
+      "id": 1,
+      "displayName": "Roboto",
+      "fontFamily": "Roboto, serif",
+      "stylesheet": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    },
+  // ...
+}
+```
 
 ### Getting a list of movies
 
